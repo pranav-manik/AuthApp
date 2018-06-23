@@ -1,0 +1,20 @@
+{
+  "name": "AuthentificationApp",
+  "version": "1.0.0",
+  "description": "WebApp",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Website"
+  ],
+  "author": "Pranav Maniktala",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "mongodb": "^3.0.10"
+  },
+  "devDependencies": {}
+}

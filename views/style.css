@@ -1,0 +1,22 @@
+body {
+	font: 400 15px Lato, sans-serif;
+	line-height: 1.6;
+	color: #ffffff
+	background-color: #011535 
+}
+
+h2 {
+	font-size: 30 px;
+	color: #ffffff
+	font-weight: 400;
+	margin-bottom: 30px;
+	font-style: center;
+}
+
+h4 {
+	font-size: 12 px;
+	color: #ffffff
+	font-weight: 400;
+	margin-bottom: 30px;
+	font-style: center;
+}

@@ -1,5 +1,5 @@
 {
-  "name": "AuthentificationApp",
+  "name": "authentificationapp",
   "version": "1.0.0",
   "description": "WebApp",
   "main": "index.js",
@@ -16,5 +16,13 @@
     "express": "^4.16.3",
     "mongodb": "^3.0.10"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pranav-manik/AuthApp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pranav-manik/AuthApp/issues"
+  },
+  "homepage": "https://github.com/pranav-manik/AuthApp#readme"
 }

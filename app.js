@@ -1,5 +1,19 @@
+
+
 var express = require('express');
 var app = express();
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/";
+
+MongoClient.connect(url, function(err, db) {
+  if (err) throw err;
+  var dbo = db.createCollection("users", function(err, res)) {
+  	if (err) throw err;
+  	console.log('"users" Collection Created');
+  }
+  db.close();
+});
+
 
 app.get('/', function (req, res) {
 	res.send('Hello World!');

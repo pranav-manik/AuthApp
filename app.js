@@ -18,9 +18,12 @@ MongoClient.connect(url, function(err, db) {
 });
 
 
-app.get('/', function (req, res) {
-	res.send('Hello World!');
-    });
+app.use('/',express.static('views'))
+
+//app.get('/', function (req, res) {
+	//res.send('Hello World!');
+    //});
+
 
 app.listen(3000, function () {
 	console.log('running on port 3000 boiii!');

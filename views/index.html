@@ -9,10 +9,40 @@
 		<center>
 			<h2>Login Page</h2>
 			<h4>Please sign in to continue</h4>
-			<form action="/action_page.php">
+			<!--<form action="">
 				Username: <br><input type="text" name="user"><br>
 				Password: <br><input type="password" name="password"><br>
-				<br><input type="submit" value="Submit"></form> 
+				<br><input type="submit" value="Login"></form>-->
+
+	<form action="/action_page.php">
+    <div class="imgcontainer">
+    <h2><center>Sign Up</center></h2>
+    <hr>
+    </div>
+
+              <div class="container" id="SignUpPage">
+              <hr>
+                <label for="email" id="modalText"><b>Email</b></label>
+                <input type="text" placeholder="Enter Email" name="email" required>
+
+                <label for="psw" id="modalText"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+
+                <label for="psw-repeat" id="modalText"><b>Repeat Password</b></label>
+                <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+                
+              </div>
+
+              <div class="container" id="SignUpPage" style="background-color:#0C1832">
+                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Sign Up</button>
+                <!--For Button to click through_____ onclick="document.getElementById('id01').style.display='none'" -->
+                <span class="psw">
+                <button type="button" class= "btn btn-success popup" id=SignUpBtn onclick="myPop()">Login</button>
+                </span>
+              </div>
+            </form>
+
+
 		</center>
 </body>
 </html>

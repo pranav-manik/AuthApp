@@ -1,13 +1,13 @@
 body {
 	font: 400 15px Lato, sans-serif;
 	line-height: 1.6;
-	color: #ffffff
+	color: #011535
 	background-color: #011535 
 }
 
 h2 {
 	font-size: 30 px;
-	color: #ffffff
+	color: #ffffff;
 	font-weight: 400;
 	margin-bottom: 30px;
 	font-style: center;
@@ -15,7 +15,7 @@ h2 {
 
 h4 {
 	font-size: 12 px;
-	color: #ffffff
+	color: #ffffff;
 	font-weight: 400;
 	margin-bottom: 30px;
 	font-style: center;
@@ -24,8 +24,9 @@ h4 {
 /*sign in*/
 /* Bordered form */
 form {
-    border: 3px solid #f1f1f1;
+    border: 3px;
     width: 50%;
+    background-color: #011535;
 }
 
 /* Full-width inputs */
@@ -61,27 +62,21 @@ button:hover {
     background-color: #f44336;
 }
 
-/* Center the avatar image inside this container */
-.imgcontainer {
-    text-align: center;
-    margin: 24px 0 12px 0;
-}
-
-/* Avatar image */
-img.avatar {
-    width: 40%;
-    border-radius: 50%;
-}
-
 /* Add padding to containers */
 .container {
     padding: 16px;
-    width: 100%
+    width: 100%;
+    background-color: #011535;
 }
 
-/* The "Forgot password" text */
-span.psw {
+/*login and sign up button properties*/
+span.lgin {
     float: right;
+    padding-top: 16px;
+}
+
+span.sgnup {
+    float: left;
     padding-top: 16px;
 }
 
@@ -94,4 +89,8 @@ span.psw {
     .cancelbtn {
         width: 100%;
     }
+}
+
+b {
+    color: #ffffff;
 }

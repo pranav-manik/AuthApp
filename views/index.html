@@ -13,23 +13,19 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
-<body>
+<body style="background-color: black">
 		<center>
-			<h2>Login Page</h2>
-			<h4>Please sign in to continue</h4>
+			
 			<!--<form action="">
 				Username: <br><input type="text" name="user"><br>
 				Password: <br><input type="password" name="password"><br>
 				<br><input type="submit" value="Login"></form>-->
 
 	<form action="/action_page.php">
-    <div class="imgcontainer">
-    <h2><center>Sign Up</center></h2>
+    <h2><center>Login Page<br><h4>Please sign in to continue</h4></center></h2>
     <hr>
-    </div>
 
               <div class="container" id="SignUpPage">
-              <hr>
                 <label for="email" id="modalText"><b>Email</b></label>
                 <input type="text" placeholder="Enter Email" name="email" required>
 
@@ -38,13 +34,14 @@
 
                 <label for="psw-repeat" id="modalText"><b>Repeat Password</b></label>
                 <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-                
               </div>
 
               <div class="container" id="SignUpPage" style="background-color:#0C1832">
-                <button type="button" class= "btn btn-success popup" id=SignUpBtn>Sign Up</button>
+                <span class="sgnup">
+                  <button type="button" class= "btn btn-success popup" id=SignUpBtn>Sign Up</button>
+                </span>
                 <!--For Button to click through_____ onclick="document.getElementById('id01').style.display='none'" -->
-                <span class="psw">
+                <span class="lgin">
                 <button type="button" class= "btn btn-success popup" id=SignUpBtn>Login</button>
                 </span>
               </div>

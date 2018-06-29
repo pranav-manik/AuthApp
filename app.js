@@ -18,8 +18,7 @@ MongoClient.connect(url, function(err, db) {
 });
 
 
-app.use('/',express.static('views'))
-
+app.use('/',express.static('views'));
 //app.get('/', function (req, res) {
 	//res.send('Hello World!');
     //});

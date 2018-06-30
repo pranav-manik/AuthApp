@@ -1,3 +1,3 @@
 # AuthentificationApp
 
-this is and Authentification App using Node Js
+this is an Authentification App using Node Js

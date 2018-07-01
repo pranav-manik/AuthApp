@@ -13,8 +13,10 @@
   "author": "Pranav Maniktala",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.3",
-    "mongodb": "^3.0.10"
+    "mongodb": "^3.0.10",
+    "nodemon": "^1.17.5"
   },
   "devDependencies": {},
   "repository": {

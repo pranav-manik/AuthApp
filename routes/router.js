@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var User = require('../models/User');
+var User = require('../models/user');
 
 //Get route for reading data
 router.get('/',function(req, res, next) {
@@ -8,30 +8,22 @@ router.get('/',function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
+	if (req.body.email &&
+		req.body.password) {
+		
+		var userData = {
+			email: req.body.email,
+			password: req.body.password,
+		}
 
-	if (req.body.password !== req.body.passwordRepeat) {
-		var err = new Error('Passwords don\'t match');
-		err.status = 400;
-		res.send("passwords don't match");
-		return next(err);
-	}
-});
-
-if (req.body.email &&
-	req.body.password &&
-	req.body.passwordRepeat) {
-	var userData = {
-		email: req.body.email,
-		password: req.body.password,
-		passwordRepeat: req.body.passwordRepeat,
-	}
-
-	User.create(userData, function(err, user) {
-		if (err) {
+		User.create(userData, function(err, user) {
+		  if (err) {
 			return next(err);
-		}
-		else {
+		  }
+		  else {
 			return res.redirect('/profile');
-		}
+		  }
 	});
 }
+})
+module.exports = router;

@@ -2,10 +2,11 @@
 
 var express = require('express');
 var app = express();
+var mongoose = require('mongoose');
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://localhost:27017/";
 
-MongoClient.connect(url, function(err, db) {
+/*MongoClient.connect(url, function(err, db) {
   if (err) throw err;
 
   var dbo = db.db("admin");
@@ -15,14 +16,32 @@ MongoClient.connect(url, function(err, db) {
     db.close();
   });
   
+});*/
+//connect to MongoDB
+mongoose.connect('mongodb://localhost/auth');
+var db = mongoose.connection;
+
+//handle mongo error
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function () {
+  // we're connected!
 });
 
 
+
+//for static site
 app.use('/',express.static('views'))
 
-//app.get('/', function (req, res) {
-	//res.send('Hello World!');
-    //});
+// include routes
+var routes = require('./routes/router');
+app.use('/', routes);
+
+// catch 404 and forward to error handler
+app.use(function (req, res, next) {
+  var err = new Error('File Not Found');
+  err.status = 404;
+  next(err);
+});
 
 
 app.listen(3000, function () {

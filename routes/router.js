@@ -8,9 +8,7 @@ router.get('/',function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-	console.log(req.body);
-	if (req.body.email &&
-		req.body.password && req.body.SignUpBtn=="SignUp") {
+	if (req.body.email && req.body.password && req.body.SignUpBtn=="SignUp") {
 		var userData = {
 			email: req.body.email,
 			password: req.body.password,
@@ -27,10 +25,7 @@ router.post('/', function(req, res, next) {
 } else if (req.body.email && req.body.password  && req.body.LoginBtn=="Login") {
 	User.authenticate(req.body.email, req.body.password, function(error, user) {
 		if (error || !user) {
-			console.log(req.body.email +" "+ req.body.password);
-			var err = new Error('Wrong email or password.');
-			err.status = 401;
-			return next(err);
+			return res.redirect('/wrongpass');
 		} else {
 			req.session.userId = user._id;
 			return res.redirect('/profile');
@@ -56,7 +51,8 @@ router.get('/profile', function (req, res, next) {
           err.status = 400;
           return next(err);
         } else {
-          return res.send('<center><h2>Mail: </h2>' + user.email + '<br><p>Welcome to the club kid</p><br><a type="button" href="/logout">Logout</a></center>')
+        	//'<body style="background-color:#0C1832"><center><h2>Mail: </h2>' + user.email + '<br><p>Welcome to the club kid</p><br><a type="button" href="/logout">Logout</a></center></body>')
+          return res.send('<body style="background-color:#65D9F5"><center><h2>Mail: </h2>' + user.email + '<br><p>Welcome to the club kid</p><br><a class="btn" href="/logout"><button>Logout</button></a></center></body>')
         }
       }
     });
@@ -76,5 +72,9 @@ router.get('/logout', function (req, res, next) {
   }
 });
 
+//If password or email is wrong
+router.get('/wrongpass', function (req, res, next ) {
+	return res.send('<body style="background-color:#65D9F5"><center><p>Wrong Email or Password</p><br><a class="btn" href="/"><button>Go Back</button></a></center></body>');
+});
 
 module.exports = router;

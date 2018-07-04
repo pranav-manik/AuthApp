@@ -8,8 +8,9 @@ router.get('/',function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
+	console.log(req.body);
 	if (req.body.email &&
-		req.body.password) {
+		req.body.password && req.body.SignUpBtn=="SignUp") {
 		var userData = {
 			email: req.body.email,
 			password: req.body.password,
@@ -23,16 +24,16 @@ router.post('/', function(req, res, next) {
 			return res.redirect('/profile');
 		  }
 		});
-} else if (req.body.logemail && req.body.logpassword) {
-	console.log("Else If statement called");
+} else if (req.body.email && req.body.password  && req.body.LoginBtn=="Login") {
 	User.authenticate(req.body.email, req.body.password, function(error, user) {
 		if (error || !user) {
+			console.log(req.body.email +" "+ req.body.password);
 			var err = new Error('Wrong email or password.');
 			err.status = 401;
 			return next(err);
 		} else {
 			req.session.userId = user._id;
-			return res.direct('/profile');
+			return res.redirect('/profile');
 		}
 	});
 } else {

@@ -37,11 +37,12 @@ UserSchema.statics.authenticate = function(email, password, callback) {
 
 //for hashing password
 UserSchema.pre('save', function(next) {
-	bcrypt.hash(this.password, 10, function(err, hash){
+	var user = this;
+	bcrypt.hash(user.password, 10, function(err, hash){
 		if (err) {
 			return next(err);
 		}
-		this.password = hash;
+		user.password = hash;
 		next();
 	})
 });

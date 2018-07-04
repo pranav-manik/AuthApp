@@ -36,9 +36,7 @@ app.use(session({
 
 //handle mongo error
 db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function () {
-  // we're connected!
-});
+db.once('open', function () {});
 
 
 // parse incoming requests
@@ -52,7 +50,7 @@ app.use('/',express.static('views'))
 var routes = require('./routes/router');
 app.use('/', routes);
 
-// catch 404 and forward to error handler
+// catch 404 error
 app.use(function (req, res, next) {
   var err = new Error('File Not Found');
   err.status = 404;

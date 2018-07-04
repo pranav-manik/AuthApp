@@ -21,7 +21,7 @@ var url = "mongodb://localhost:27017/";
   
 });*/
 //connect to MongoDB
-mongoose.connect('mongodb://localhost/auth');
+mongoose.connect('mongodb://localhost/authApp');
 var db = mongoose.connection;
 
 //use sessions for tracking logins

@@ -7,31 +7,6 @@ router.get('/',function(req, res, next) {
 	return res.sendFile(path.join(__dirname + '/views/index.html'));
 });
 
-//Get method
-router.get('/', function(req, res, next) {
-	console.log("get called");
-	if (req.body.email &&
-		req.body.password) {
-		var userData = {
-			email: req.body.email,
-			password: req.body.password,
-		}
-		User.create(userData, function(err, user) {
-		  if (err) {
-			return next(err);
-		  }
-		  else {
-		  	req.session.userId = user._id;
-			return res.redirect('/profile');
-		  }
-		});
-} else {
-	var err = new Error('fields missing.');
-	err.status = 400;
-	return next(err);
-}
-})
-
 router.post('/', function(req, res, next) {
 	if (req.body.email &&
 		req.body.password) {

@@ -1,3 +1,3 @@
-# AuthentificationApp
+# Login Registration
 
-this is a Login System made using Node Js
+this is a basic login system made using Node Js

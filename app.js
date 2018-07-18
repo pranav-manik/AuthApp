@@ -8,6 +8,7 @@ var mongoose = require('mongoose');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 var url = "mongodb://localhost:27017/";
+var logger = require('morgan');
 
 /*MongoClient.connect(url, function(err, db) {
   if (err) throw err;
@@ -24,6 +25,8 @@ var url = "mongodb://localhost:27017/";
 mongoose.connect('mongodb://localhost/authApp');
 var db = mongoose.connection;
 
+
+app.use(logger('dev'));
 //use sessions for tracking logins
 app.use(session({
   secret: 'work hard',

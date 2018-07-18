@@ -8,6 +8,7 @@ router.get('/',function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
+	//If registering
 	if (req.body.email && req.body.password && req.body.SignUpBtn=="SignUp") {
 		var userData = {
 			email: req.body.email,
@@ -22,6 +23,7 @@ router.post('/', function(req, res, next) {
 			return res.redirect('/profile');
 		  }
 		});
+	//for signing in
 } else if (req.body.email && req.body.password  && req.body.LoginBtn=="Login") {
 	User.authenticate(req.body.email, req.body.password, function(error, user) {
 		if (error || !user) {
@@ -52,6 +54,7 @@ router.get('/profile', function (req, res, next) {
           return next(err);
         } else {
         	//'<body style="background-color:#0C1832"><center><h2>Mail: </h2>' + user.email + '<br><p>Welcome to the club kid</p><br><a type="button" href="/logout">Logout</a></center></body>')
+        	//return res.send()
           return res.send('<body style="background-color:#65D9F5"><center><h2>Mail: </h2>' + user.email + '<br><p>Welcome to the club kid</p><br><a class="btn" href="/logout"><button>Logout</button></a></center></body>')
         }
       }
@@ -66,6 +69,7 @@ router.get('/logout', function (req, res, next) {
       if (err) {
         return next(err);
       } else {
+      	req.session = null;
         return res.redirect('/');
       }
     });
